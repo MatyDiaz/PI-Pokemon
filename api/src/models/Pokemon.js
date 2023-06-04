@@ -13,11 +13,15 @@ module.exports = (sequelize) => {
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     hp: {
       type: DataTypes.INTEGER,
       validate: {
         min: 0,
-        max: 150
+        max: 300
       },
       allowNull: false
     },
