@@ -17,11 +17,11 @@ const NavBar = () => {
     return (
         <div className={style.mainContainer} >
 
-            <Link to='/home' > Home </Link>
             <button onClick={clickHandler}>
-                Refresh
+                REFRESH
             </button>
-            <Link to='/create' > Create </Link>
+            <Link to='/home' > HOME </Link>
+            <Link to='/create' > CREATE </Link>
             <div>
                 <SearchBar/>
             </div>

@@ -1,10 +1,24 @@
 .card {
 
     display: flex;
+    align-items: center;
+    background-color: #edede9;
     flex-direction: column;
-    border: 1px solid black;
     border-radius: 15px;
     width: fit-content;
-    height: fit-content;
     
+}
+.image{
+    border-radius: 15px;
+}
+
+.pokeName{
+    font-family: Arial;
+    font-size: 20px;
+    color: black;
+    font-weight:bold; 
+}
+
+.type{
+    font-family: Arial;
 }

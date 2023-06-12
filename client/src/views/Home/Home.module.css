@@ -1,0 +1,13 @@
+.filtersContainer{
+    display: flex;
+    font-family: Arial;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+    padding: 12px;
+}
+.fondo{
+    background-color:#ffd166;
+    border-radius: 10px;
+    margin-top: 0.5px;
+}

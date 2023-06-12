@@ -45,6 +45,10 @@ module.exports = (sequelize) => {
     created: {
       type: DataTypes.BOOLEAN,
       defaultValue: true
+    },
+    color: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {timestamps: false});
 };

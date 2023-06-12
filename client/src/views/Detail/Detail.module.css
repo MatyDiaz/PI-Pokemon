@@ -1,0 +1,28 @@
+.detailContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial;
+    background-color: #f9809c ;
+    border-radius: 15px;
+    margin: 0.5px;
+    padding-bottom: 5px;
+}
+.status{
+    border-radius: 15px;
+    background-color: #ffd166;
+    padding: 5px;
+    margin: 2px;
+}
+.typesContainer{
+   text-align: center;
+   border-radius: 15px;
+   background-color: #ffd166;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-bottom: 5px;
+}
+.type{
+    padding-top: 5px;
+    margin: 1px;
+}

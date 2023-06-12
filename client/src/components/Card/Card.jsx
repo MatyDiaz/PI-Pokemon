@@ -7,14 +7,14 @@ const Card = (props) => {
         <Link to= {`/detail/${props.id}`}  >
             <div className = {style.card} >
              
-                <img 
-                    height= '200px' 
-                    width= '200px' 
+                <img className={style.image}
+                    height= '150px' 
+                    width= '150px' 
                     alt= 'pokemon' 
                     src= {props.image} 
                 />
-                <p> {props.name} </p>
-                <p> {props.types} </p>
+                <p className={style.pokeName} > {props.name.toUpperCase()} </p>
+                <p className={style.type}> {props.types.join('/')} </p>
 
             </div>
         </Link>

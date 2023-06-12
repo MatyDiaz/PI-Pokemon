@@ -3,7 +3,7 @@ import Paginado from "../../components/Paginado/Paginado";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanHome, getPokemons, filterByOrigin, filterByType, orderByName, orderByAttack, getAllTypes } from "../../redux/actions";
-
+import style from './Home.module.css'
 
 const Home = () => {
 
@@ -64,19 +64,18 @@ const Home = () => {
     };
 
     return (
-        <div>
-            <p>Esta el la vista de Home</p>
+        <div className={style.fondo}>
             <div>
-                <div>
+                <div className={style.filtersContainer} >
                     <span>Alphabetical</span>
                     <select onChange={sortNameHandler}>
-                        <option value='asc' >Ascendente</option>
-                        <option value='desc' >Descendente</option>
+                        <option value='asc' >Asc</option>
+                        <option value='desc' >Desc</option>
                     </select>
-                    <span>Atack</span>
+                    <span>Attack</span>
                     <select onChange={sortAttackHandler}>
-                        <option value='asc' >Ascendente</option>
-                        <option value='desc' >Descendente</option>
+                        <option value='asc' >Asc</option>
+                        <option value='desc' >Desc</option>
                     </select>
                     <span>Origen</span>
                     <select onChange={originHandler}>
@@ -103,9 +102,12 @@ const Home = () => {
                 />
             </div>
             <div>
-                <CardsContainer
-                    currentPokemons = {currentPokemons}
-                />
+                {Boolean(currentPokemons.length)?
+                    <CardsContainer
+                        currentPokemons = {currentPokemons}
+                    />: <p>cargando...</p>
+                
+            }
             </div>
 
 

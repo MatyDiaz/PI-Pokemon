@@ -5,4 +5,10 @@
     list-style: none;
     gap: 1em;
 
-}
+    .a:hover{
+        color: aliceblue;
+        background-color: black;
+        border-radius: 15px;
+    }
+
+};

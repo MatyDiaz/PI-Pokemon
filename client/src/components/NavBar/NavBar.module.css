@@ -1,8 +1,13 @@
 .mainContainer {
     display: flex;
+    font-family: Arial;
     flex-direction: row;
     justify-content: space-around;
-    background-color: cyan;
+    background-color: #64C4F1;
     border-radius: 15px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    :link{
+        text-decoration: none;
+
+    }
 }

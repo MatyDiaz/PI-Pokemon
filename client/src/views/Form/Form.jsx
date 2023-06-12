@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTypes } from "../../redux/actions";
 import axios from "axios";
+import style from './Form.module.css'
 
 
 
@@ -133,7 +134,7 @@ const Form = () => {
 
         if (!/^[0-9]/.test(form.speed) && form.speed!=='') errors.speed = 'Speed must be a number';
         if (!/^[0-9]/.test(form.height)&& form.height!=='') errors.height = 'Height must be a number';
-        if (!/^[0-9]/.test(form.weight)&& form.weight!=='') errors.weight = 'weight must be a number';
+        if (!/^[0-9]/.test(form.weight)&& form.weight!=='') errors.weight = 'Weight must be a number';
 
         if (!form.types.length) errors.types = 'You must select at least one type'
 
@@ -142,71 +143,74 @@ const Form = () => {
     }; 
 
     return (
-        <form onSubmit={submitHandler}>
-            <div>
-                <label> Name </label>
-                <input type="text" name='name' value= {form.name} onChange={inputHandler} />
-                {errors.name && <span>{errors.name}</span>}
-            </div>
-            <div>
-                <label>Image </label>
-                <input type="url" name='image' value= {form.image} onChange={inputHandler} />
-                {errors.image && <span>{errors.image}</span>}
-            </div>
-            <div>
-                <label>Health Points </label>
-                <input type="text" name='hp' value= {form.hp} onChange={inputHandler} />
-                {errors.hp && <span>{errors.hp}</span>}
-            </div>
-            <div>
-                <label>Attack </label>
-                <input type="text" name='attack' value= {form.attack} onChange={inputHandler} />
-                {errors.attack && <span>{errors.attack}</span>}
-            </div>
-            <div>
-                <label>Defense </label>
-                <input type="text" name='defense' value= {form.defense} onChange={inputHandler} />
-                {errors.defense && <span>{errors.defense}</span>}
-            </div>
-            <div>
-                <label>Speed </label>
-                <input type="text" name='speed' value= {form.speed} onChange={inputHandler} />
-                {errors.speed && <span>{errors.speed}</span>}
-            </div>
-            <div>
-                <label>Height </label>
-                <input type="text" name='height' value= {form.height} onChange={inputHandler} />
-                {errors.height && <span>{errors.height}</span>}
-            </div>
-            <div>
-                <label>Weight </label>
-                <input type="text" name='weight' value= {form.weight} onChange={inputHandler} />
-                {errors.weight && <span>{errors.weight}</span>}
-            </div>
+        <div className={style.mainContainer} >
+            <form className={style.form} onSubmit={submitHandler}>
+                <div className={style.divLabel} >
+                    <label className={style.label}> Name </label>
+                    <input className={style.input} type="text" name='name' value= {form.name} onChange={inputHandler} />
+                </div>
+                    {errors.name
+                     && <p className={style.errorMsj} >{errors.name}</p>}
+                <div className={style.divLabel} >
+                    <label>Image </label>
+                    <input type="url" name='image' value= {form.image} onChange={inputHandler} />
+                </div>
+                    {errors.image && <p className={style.errorMsj} >{errors.image}</p>}
+                <div className={style.divLabel} >
+                    <label>Health Points </label>
+                    <input className={style.input} type="text" name='hp' value= {form.hp} onChange={inputHandler} />
+                </div>
+                    {errors.hp && <p className={style.errorMsj} >{errors.hp}</p>}
+                <div className={style.divLabel} >
+                    <label>Attack </label>
+                    <input type="text" name='attack' value= {form.attack} onChange={inputHandler} />
+                </div>
+                    {errors.attack && <p className={style.errorMsj} >{errors.attack}</p>}
+                <div className={style.divLabel} >
+                    <label>Defense </label>
+                    <input type="text" name='defense' value= {form.defense} onChange={inputHandler} />
+                </div>
+                    {errors.defense && <p className={style.errorMsj} >{errors.defense}</p>}
+                <div className={style.divLabel} >
+                    <label>Speed </label>
+                    <input type="text" name='speed' value= {form.speed} onChange={inputHandler} />
+                </div>
+                    {errors.speed && <p className={style.errorMsj} >{errors.speed}</p>}
+                <div className={style.divLabel} >
+                    <label>Height </label>
+                    <input type="text" name='height' value= {form.height} onChange={inputHandler} />
+                </div>
+                    {errors.height && <p className={style.errorMsj} >{errors.height}</p>}
+                <div className={style.divLabel} >
+                    <label>Weight </label>
+                    <input type="text" name='weight' value= {form.weight} onChange={inputHandler} />
+                </div>
+                    {errors.weight && <p className={style.errorMsj} >{errors.weight}</p>}
 
-            <div>
-                <h2>Types</h2>
-                <ul>
-                    {types.map((type,index)=>
-                          <li key={index+1}>
-                            <input
-                                id={index+1}
-                                type= 'checkbox'
-                                name= {type}
-                                value={index+1}
-                                onChange={checkboxHandler}
-                            />
-                            <label>{type}</label>
-                          </li>  
-                        )}
-                </ul>
-                {errors.types && <span>{errors.types}</span>}
-            </div>
+                <div>
+                    <h2>Types</h2>
+                    <ul>
+                        {types.map((type,index)=>
+                            <li key={index+1}>
+                                <input
+                                    id={index+1}
+                                    type= 'checkbox'
+                                    name= {type}
+                                    value={index+1}
+                                    onChange={checkboxHandler}
+                                />
+                                <label>{type}</label>
+                            </li>  
+                            )}
+                    </ul>
+                    {errors.types && <span className={style.errorMsj} >{errors.types}</span>}
+                </div>
 
-            <div>
-                <button type='submit' disabled= {Object.keys(errors).length>0} > Create Pokemon! </button>
-            </div>
-        </form>
+                <div>
+                    <button type='submit' disabled= {Object.keys(errors).length>0} > Create Pokemon! </button>
+                </div>
+            </form>
+        </div>
     )
 };
 
